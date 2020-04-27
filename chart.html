@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Input by Chart Interaction</title>
+    <link rel="stylesheet" type="text/css" href="chart-style.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>Altere a quantidade e o tamanho das barras coloridas</h1>
+      <div class="custom-select" id="select">
+        <label for="qnt-bars">Quantidade de barras:</label>
+        <select name="qnt-bars" id="qnt-bars">
+          <option value="1">1 barra</option>
+          <option value="2">2 barras</option>
+          <option value="3">3 barras</option>
+          <option value="4">4 barras</option>
+          <option value="5">5 barras</option>
+          <option value="6">6 barras</option>
+        </select>
+      </div>
+
+      <div id="input-fields"></div>
+      <div id="container"></div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="css-element-queries/src/ResizeSensor.js"></script>
+    <script src="css-element-queries/src/ElementQueries.js"></script>
+
+    <script src="chart-script.js"></script>
+  </body>
+</html>
