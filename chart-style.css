@@ -59,7 +59,7 @@ input {
   border-radius: 18px;
   height: 36px;
   width: 100%;
-  margin-right: 24px;
+  /* margin-right: 24px; */
   margin-bottom: 24px;
   padding-left: 18px;
   color: #a1a1a1;
@@ -178,6 +178,19 @@ input:focus {
 
 #green-bar {
   background-color: #a2e960;
+}
+
+#disclaimer {
+  height: 48px;
+  width: 100%;
+  padding: 0;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+p {
+  color: red;
 }
 
 /* button {

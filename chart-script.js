@@ -1,45 +1,43 @@
 $(document).ready(function () {
   // CREATE ALL POSSIBLE NEW ELEMENTS
-  let blueInput, pinkInput, yellowInput, violetInput, orangeInput, greenInput;
-  let blueBar, pinkBar, yellowBar, violetBar, orangeBar, greenBar;
+  const $_BLUE_INPUT = $(
+    "<input type='number' step='1' name='blue' class='blue' id='blue'>"
+  );
+  const $_PINK_INPUT = $(
+    "<input type='number' step='1' name='pink' class='pink' id='pink'>"
+  );
+  const $_YELLOW_INPUT = $(
+    "<input type='number' step='1' name='yellow' class='yellow' id='yellow'>"
+  );
+  const $_VIOLET_INPUT = $(
+    "<input type='number' step='1' name='violet' class='violet' id='violet'>"
+  );
+  const $_ORANGE_INPUT = $(
+    "<input type='number' step='1' name='orange' class='orange' id='orange'>"
+  );
+  const $_GREEN_INPUT = $(
+    "<input type='number' step='1' name='green' class='green' id='green'>"
+  );
+  const $_BLUE_BAR = $("<div class='bar blue' id='blue-bar'><div>");
+  const $_PINK_BAR = $("<div class='bar pink' id='pink-bar'><div>");
+  const $_YELLOW_BAR = $("<div class='bar yellow' id='yellow-bar'><div>");
+  const $_VIOLET_BAR = $("<div class='bar violet' id='violet-bar'><div>");
+  const $_ORANGE_BAR = $("<div class='bar orange' id='orange-bar'><div>");
+  const $_GREEN_BAR = $("<div class='bar green' id='green-bar'><div>");
+  ////////////////////////////////
   let blueWidth, pinkWidth, yellowWidth, violetWidth, orangeWidth, greenWidth;
+  let qntBar;
+  let denominator;
+  let scaleMax = 10;
+  // CREATE FIRST BAR
   {
-    blueInput = $(
-      "<input type='number' step='10' name='blue' class='blue' id='blue'>"
-    );
-    pinkInput = $(
-      "<input type='number' step='10' name='pink' class='pink' id='pink'>"
-    );
-    yellowInput = $(
-      "<input type='number' step='10' name='yellow' class='yellow' id='yellow'>"
-    );
-    violetInput = $(
-      "<input type='number' step='10' name='violet' class='violet' id='violet'>"
-    );
-    orangeInput = $(
-      "<input type='number' step='10' name='orange' class='orange' id='orange'>"
-    );
-    greenInput = $(
-      "<input type='number' step='10' name='green' class='green' id='green'>"
-    );
-    blueBar = $("<div class='bar blue' id='blue-bar'><div>");
-    pinkBar = $("<div class='bar pink' id='pink-bar'><div>");
-    yellowBar = $("<div class='bar yellow' id='yellow-bar'><div>");
-    violetBar = $("<div class='bar violet' id='violet-bar'><div>");
-    orangeBar = $("<div class='bar orange' id='orange-bar'><div>");
-    greenBar = $("<div class='bar green' id='green-bar'><div>");
-  }
-  // APPEND BLUE BAR
-  let qntBar, barWidth;
-  {
-    $("#input-fields").append(blueInput);
-    $("#container").append(blueBar);
-    // SET INITIAL WIDTH
-    qntBar = $(".bar").length;
-    barWidth = 100 / qntBar;
-    $(".bar").css("width", `${barWidth}%`);
-    // PLACE WIDTH INTO INPUT FIELD
-    $("input").val(barWidth);
+    // APPEND ELEMENTS
+    $("#input-fields").append($_BLUE_INPUT);
+    $("#container").append($_BLUE_BAR);
+    // SET INPUT VALUE
+    $("input").val(scaleMax.toFixed(1));
+    // SET BAR WIDTH
+    $(".bar").css("width", "100%");
   }
   // CHANGE QUANTITY OF BARS
   $("select").change(function () {
@@ -79,8 +77,8 @@ $(document).ready(function () {
         }
         // APPEND NEW ELEMENTS
         else {
-          $("#input-fields").append(pinkInput);
-          $("#container").append(pinkBar);
+          $("#input-fields").append($_PINK_INPUT);
+          $("#container").append($_PINK_BAR);
         }
         break;
       case 3:
@@ -101,10 +99,10 @@ $(document).ready(function () {
         }
         // APPEND NEW ELEMENTS
         else {
-          $("#input-fields").append(pinkInput);
-          $("#container").append(pinkBar);
-          $("#input-fields").append(yellowInput);
-          $("#container").append(yellowBar);
+          $("#input-fields").append($_PINK_INPUT);
+          $("#container").append($_PINK_BAR);
+          $("#input-fields").append($_YELLOW_INPUT);
+          $("#container").append($_YELLOW_BAR);
         }
         break;
       case 4:
@@ -125,12 +123,12 @@ $(document).ready(function () {
         }
         // APPEND NEW ELEMENTS
         else {
-          $("#input-fields").append(pinkInput);
-          $("#container").append(pinkBar);
-          $("#input-fields").append(yellowInput);
-          $("#container").append(yellowBar);
-          $("#input-fields").append(violetInput);
-          $("#container").append(violetBar);
+          $("#input-fields").append($_PINK_INPUT);
+          $("#container").append($_PINK_BAR);
+          $("#input-fields").append($_YELLOW_INPUT);
+          $("#container").append($_YELLOW_BAR);
+          $("#input-fields").append($_VIOLET_INPUT);
+          $("#container").append($_VIOLET_BAR);
         }
         break;
       case 5:
@@ -151,198 +149,64 @@ $(document).ready(function () {
         }
         // APPEND NEW ELEMENTS
         else {
-          $("#input-fields").append(pinkInput);
-          $("#container").append(pinkBar);
-          $("#input-fields").append(yellowInput);
-          $("#container").append(yellowBar);
-          $("#input-fields").append(violetInput);
-          $("#container").append(violetBar);
-          $("#input-fields").append(orangeInput);
-          $("#container").append(orangeBar);
+          $("#input-fields").append($_PINK_INPUT);
+          $("#container").append($_PINK_BAR);
+          $("#input-fields").append($_YELLOW_INPUT);
+          $("#container").append($_YELLOW_BAR);
+          $("#input-fields").append($_VIOLET_INPUT);
+          $("#container").append($_VIOLET_BAR);
+          $("#input-fields").append($_ORANGE_INPUT);
+          $("#container").append($_ORANGE_BAR);
         }
         break;
       case 6:
         // APPEND NEW ELEMENTS ONLY
-        $("#input-fields").append(pinkInput);
-        $("#container").append(pinkBar);
-        $("#input-fields").append(yellowInput);
-        $("#container").append(yellowBar);
-        $("#input-fields").append(violetInput);
-        $("#container").append(violetBar);
-        $("#input-fields").append(orangeInput);
-        $("#container").append(orangeBar);
-        $("#input-fields").append(greenInput);
-        $("#container").append(greenBar);
+        $("#input-fields").append($_PINK_INPUT);
+        $("#container").append($_PINK_BAR);
+        $("#input-fields").append($_YELLOW_INPUT);
+        $("#container").append($_YELLOW_BAR);
+        $("#input-fields").append($_VIOLET_INPUT);
+        $("#container").append($_VIOLET_BAR);
+        $("#input-fields").append($_ORANGE_INPUT);
+        $("#container").append($_ORANGE_BAR);
+        $("#input-fields").append($_GREEN_INPUT);
+        $("#container").append($_GREEN_BAR);
         break;
       default:
         console.log("Not a valid option");
     }
 
-    barWidth = 100 / qntBar;
-    $(".bar").css("width", `${barWidth}%`);
-    $("input").val(Math.round(barWidth));
-    blueWidth = pinkWidth = yellowWidth = violetWidth = orangeWidth = greenWidth = barWidth;
+    $("input").val((scaleMax / qntBar).toFixed(1));
+    $(".bar").css("width", `${100 / qntBar}%`);
   });
-
   // CHANGE BARS WIDTHS WITH INPUT VALUE
   $(document).on("change", "input", function () {
-    let delta;
-    let targetClass = $(this).attr("class");
-    let newWidth = Number($(this).val());
-    let validWidth = newWidth > 0 && newWidth < 100;
-    if (qntBar > 1 && validWidth) {
+    if ($(this).val() > 0) {
       console.log("changing...");
-      switch (targetClass) {
-        case "blue":
-          console.log("I'm blue");
-          delta = newWidth - blueWidth;
-          // REDEFINE BARS WIDTHS
-          blueWidth = newWidth;
-          pinkWidth = pinkWidth - delta / (qntBar - 1);
-          yellowWidth = yellowWidth - delta / (qntBar - 1);
-          violetWidth = violetWidth - delta / (qntBar - 1);
-          orangeWidth = orangeWidth - delta / (qntBar - 1);
-          greenWidth = greenWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.pink").val(Math.round(pinkWidth));
-          $("input.yellow").val(Math.round(yellowWidth));
-          $("input.violet").val(Math.round(violetWidth));
-          $("input.orange").val(Math.round(orangeWidth));
-          $("input.green").val(Math.round(greenWidth));
-          break;
-        case "pink":
-          console.log("I'm pink");
-          delta = newWidth - pinkWidth;
-          // REDEFINE BARS WIDTHS
-          pinkWidth = newWidth;
-          blueWidth = blueWidth - delta / (qntBar - 1);
-          yellowWidth = yellowWidth - delta / (qntBar - 1);
-          violetWidth = violetWidth - delta / (qntBar - 1);
-          orangeWidth = orangeWidth - delta / (qntBar - 1);
-          greenWidth = greenWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.blue").val(Math.round(blueWidth));
-          $("input.yellow").val(Math.round(yellowWidth));
-          $("input.violet").val(Math.round(violetWidth));
-          $("input.orange").val(Math.round(orangeWidth));
-          $("input.green").val(Math.round(greenWidth));
-          break;
-        case "yellow":
-          console.log("I'm yellow");
-          delta = newWidth - yellowWidth;
-          // REDEFINE BARS WIDTHS
-          yellowWidth = newWidth;
-          blueWidth = blueWidth - delta / (qntBar - 1);
-          pinkWidth = pinkWidth - delta / (qntBar - 1);
-          violetWidth = violetWidth - delta / (qntBar - 1);
-          orangeWidth = orangeWidth - delta / (qntBar - 1);
-          greenWidth = greenWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.blue").val(Math.round(blueWidth));
-          $("input.pink").val(Math.round(pinkWidth));
-          $("input.violet").val(Math.round(violetWidth));
-          $("input.orange").val(Math.round(orangeWidth));
-          $("input.green").val(Math.round(greenWidth));
-          break;
-        case "violet":
-          console.log("I'm violet");
-          delta = newWidth - violetWidth;
-          // REDEFINE BARS WIDTHS
-          violetWidth = newWidth;
-          blueWidth = blueWidth - delta / (qntBar - 1);
-          pinkWidth = pinkWidth - delta / (qntBar - 1);
-          yellowWidth = yellowWidth - delta / (qntBar - 1);
-          orangeWidth = orangeWidth - delta / (qntBar - 1);
-          greenWidth = greenWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.blue").val(Math.round(blueWidth));
-          $("input.pink").val(Math.round(pinkWidth));
-          $("input.yellow").val(Math.round(yellowWidth));
-          $("input.orange").val(Math.round(orangeWidth));
-          $("input.green").val(Math.round(greenWidth));
-          break;
-        case "orange":
-          console.log("I'm orange");
-          delta = newWidth - orangeWidth;
-          // REDEFINE BARS WIDTHS
-          orangeWidth = newWidth;
-          blueWidth = blueWidth - delta / (qntBar - 1);
-          pinkWidth = pinkWidth - delta / (qntBar - 1);
-          yellowWidth = yellowWidth - delta / (qntBar - 1);
-          violetWidth = violetWidth - delta / (qntBar - 1);
-          greenWidth = greenWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.blue").val(Math.round(blueWidth));
-          $("input.pink").val(Math.round(pinkWidth));
-          $("input.yellow").val(Math.round(yellowWidth));
-          $("input.violet").val(Math.round(violetWidth));
-          $("input.green").val(Math.round(greenWidth));
-          break;
-        case "green":
-          console.log("I'm green");
-          delta = newWidth - violetWidth;
-          // REDEFINE BARS WIDTHS
-          greenWidth = newWidth;
-          blueWidth = blueWidth - delta / (qntBar - 1);
-          pinkWidth = pinkWidth - delta / (qntBar - 1);
-          yellowWidth = yellowWidth - delta / (qntBar - 1);
-          violetWidth = violetWidth - delta / (qntBar - 1);
-          orangeWidth = orangeWidth - delta / (qntBar - 1);
-          // MODIFY CSS WIDTHS
-          $(".bar.blue").animate({ width: `${blueWidth}%` }, 1500);
-          $(".bar.pink").animate({ width: `${pinkWidth}%` }, 1500);
-          $(".bar.yellow").animate({ width: `${yellowWidth}%` }, 1500);
-          $(".bar.violet").animate({ width: `${violetWidth}%` }, 1500);
-          $(".bar.orange").animate({ width: `${orangeWidth}%` }, 1500);
-          $(".bar.green").animate({ width: `${greenWidth}%` }, 1500);
-          // CHANGE INPUT VALUES
-          $("input.blue").val(Math.round(blueWidth));
-          $("input.pink").val(Math.round(pinkWidth));
-          $("input.yellow").val(Math.round(yellowWidth));
-          $("input.violet").val(Math.round(violetWidth));
-          $("input.orange").val(Math.round(orangeWidth));
-          break;
-        default:
-          console.log("Not a valid class");
-      }
+      // RESET FRACTION DENOMINATOR
+      denominator = 0;
+      $("input").each(function () {
+        denominator += Number($(this).val());
+      });
+      // REDEFINE BARS WIDTHS
+      blueWidth = Number($("input.blue").val()) / denominator;
+      pinkWidth = Number($("input.pink").val()) / denominator;
+      yellowWidth = Number($("input.yellow").val()) / denominator;
+      violetWidth = Number($("input.violet").val()) / denominator;
+      orangeWidth = Number($("input.orange").val()) / denominator;
+      greenWidth = Number($("input.green").val()) / denominator;
+      // MODIFY CSS WIDTHS
+      $(".bar.blue").animate({ width: `${blueWidth * 100}%` }, 1500);
+      $(".bar.pink").animate({ width: `${pinkWidth * 100}%` }, 1500);
+      $(".bar.yellow").animate({ width: `${yellowWidth * 100}%` }, 1500);
+      $(".bar.violet").animate({ width: `${violetWidth * 100}%` }, 1500);
+      $(".bar.orange").animate({ width: `${orangeWidth * 100}%` }, 1500);
+      $(".bar.green").animate({ width: `${greenWidth * 100}%` }, 1500);
     } else {
-      $("input").val(Math.round(barWidth));
-      $(".bar").css("width", `${barWidth}%`);
+      $("#disclaimer").prepend("<p>Digite um número maior que zero!</p>");
+      $("#disclaimer p").fadeOut(5000, function () {
+        $(this).remove();
+      });
     }
   });
 
