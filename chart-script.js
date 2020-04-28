@@ -4,35 +4,29 @@ $(document).ready(function () {
   let blueBar, pinkBar, yellowBar, violetBar, orangeBar, greenBar;
   let blueWidth, pinkWidth, yellowWidth, violetWidth, orangeWidth, greenWidth;
   {
-    blueInput = $("<label class='blue' for='blue'>Width:</label>'").append(
+    blueInput = $(
       "<input type='number' step='10' name='blue' class='blue' id='blue'>"
     );
-    blueBar = $("<div class='bar blue' id='blue-bar'><div>");
-    pinkInput = $("<label class='pink' for='pink'>Width:</label>'").append(
+    pinkInput = $(
       "<input type='number' step='10' name='pink' class='pink' id='pink'>"
     );
-    pinkBar = $("<div class='bar pink' id='pink-bar'><div>");
     yellowInput = $(
-      "<label class='yellow' for='yellow'>Width:</label>'"
-    ).append(
       "<input type='number' step='10' name='yellow' class='yellow' id='yellow'>"
     );
-    yellowBar = $("<div class='bar yellow' id='yellow-bar'><div>");
     violetInput = $(
-      "<label class='violet' for='violet'>Width:</label>'"
-    ).append(
       "<input type='number' step='10' name='violet' class='violet' id='violet'>"
     );
-    violetBar = $("<div class='bar violet' id='violet-bar'><div>");
     orangeInput = $(
-      "<label class='orange' for='orange'>Width:</label>'"
-    ).append(
       "<input type='number' step='10' name='orange' class='orange' id='orange'>"
     );
-    orangeBar = $("<div class='bar orange' id='orange-bar'><div>");
-    greenInput = $("<label class='green' for='green'>Width:</label>'").append(
+    greenInput = $(
       "<input type='number' step='10' name='green' class='green' id='green'>"
     );
+    blueBar = $("<div class='bar blue' id='blue-bar'><div>");
+    pinkBar = $("<div class='bar pink' id='pink-bar'><div>");
+    yellowBar = $("<div class='bar yellow' id='yellow-bar'><div>");
+    violetBar = $("<div class='bar violet' id='violet-bar'><div>");
+    orangeBar = $("<div class='bar orange' id='orange-bar'><div>");
     greenBar = $("<div class='bar green' id='green-bar'><div>");
   }
   // APPEND BLUE BAR
